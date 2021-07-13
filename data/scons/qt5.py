@@ -333,7 +333,7 @@ def generate(env):
             return result
 
         contents = node.get_contents()
-        includes = qrcinclude_re.findall(contents)
+        includes = qrcinclude_re.findall(str(contents))
         qrcpath = os.path.dirname(node.path)
         dirs = [
             included for included in includes
