@@ -218,6 +218,8 @@ AutomocStatic = _Automoc('StaticObject')
 def _detect(env):
     """Not really safe, but fast method to detect the QT library"""
     try:
+        if type(env['QTDIR']) is list:
+            env['QTDIR'] = env['QTDIR'][0]
         return env['QTDIR']
     except KeyError:
         pass
@@ -273,10 +275,12 @@ def generate(env):
 
     # TODO: 'Replace' should be 'SetDefault'
     #       env.SetDefault(
+    ###### By Qi: where QT directory is detected
+    # pdb.set_trace()
     env.Replace(
         QTDIR=_detect(env),
         QT5_BINPATH=os.path.join('$QTDIR', 'bin'),
-        QT5_LIBPATH=os.path.join('$QTDIR', 'lib'),
+        QT5_LIBPATH=os.path.join('$QTDIR', 'lib', 'x86_64-linux-gnu', 'qt5'),
         # TODO: This is not reliable to QTDIR value changes but needed in order to support '-qt5' variants
         QT5_MOC=locateQt5Command(env, 'moc', env['QTDIR']),
         QT5_UIC=locateQt5Command(env, 'uic', env['QTDIR']),

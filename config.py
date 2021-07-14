@@ -35,12 +35,20 @@ BASEINCLUDE = ['#include']
 BASELIB = ['dl', 'm', 'pthread', 'gomp']
 EIGENINCLUDE = ['/usr/include/eigen3']
 OEXRINCLUDE = ['/usr/include/OpenEXR']
-QTINCLUDE = ['/usr/include/x86_64-linux-gnu/qt5'
+# QTINCLUDE = ['/home/qi/anaconda3/include/qt'
+#  ]  # Added by Qi: change to the directory to add QT
+# QTINCLUDE = ['/usr/include/x86_64-linux-gnu/qt5'
+#              ]  # Added by Qi: change to the directory to add QT
+QTINCLUDE = ['/home/qi/Qt5.12.11/5.12.11/gcc_64/include'
              ]  # Added by Qi: change to the directory to add QT
+
 OEXRLIB = ['Half', 'IlmImf', 'z']
 PNGLIB = ['png']
 JPEGLIB = ['jpeg']
-QTDIR = ['/usr/lib/qt5/bin/']
+# QTDIR = ['/home/qi/anaconda3']
+# QTDIR = ['/usr/']
+QTDIR = ['/home/qi/Qt5.12.11/5.12.11/gcc_64']
+QTLIB = ['/home/qi/Qt5.12.11/5.12.11/gcc_64/lib']
 XERCESINCLUDE = []
 XERCESLIB = ['xerces-c']
 GLLIB = ['GL', 'GLU', 'GLEWmx', 'Xxf86vm', 'X11']
